@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>Scyil Movie Search: Coding Ninjas</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container my-4">
+            <h1 class="text-center" id="fetch-movie">Scyil Movie Search</h1>
+            <!-- Movie search section -->
+            <div class="row my-4">
+                <div class="col-12">
+                    <input type="text" id="movie-search" class="form-control" placeholder="Search for a movie...">
+                </div>
+            </div>
+            <button type="button" id="FavButton" onclick="location.href = './favouritemovies.html'" class="btn btn-success">Favourite Movies</button>
+            <!-- Search results section -->
+            <div class="row" id="search-results">
+                <!-- Search results will be displayed here dynamically from javascript -->
+            </div>
+        </div>
+        <script src="./script.js"></script>
+    </body>
+</html>

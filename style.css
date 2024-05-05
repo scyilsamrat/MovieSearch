@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    color:rgb(223, 220, 16);
+  }
+  .search-bar {
+    border-radius: 25px;
+    padding: 10px;
+    padding-left: 20px;
+  }
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  div.search-result
+  {
+    
+        height: 60px; /* Specified height */
+        width: 600px; /* Specified width */
+        margin: 1px auto; /* Centered horizontally with 20px margin */
+        padding: 10px; /* Padding inside the div */
+        border: 2px solid #860202; /* Light gray border */
+        border-radius: 25px; /* Rounded corners */
+        /*background-color: #dadede;  Light background color */
+        text-align: center; /* Center text horizontally */
+        font-size: 1.5rem; /* Larger font for the title */
+        font-weight: bold; /* Bold font */
+        margin-bottom: 4px; /* Space between title and button */
+  }
+      .buttonu {
+        display: flex;
+        padding: 3px 14px; /* Padding for the button */
+        font-size: 1rem; /* Standard font size */
+        border-radius: 0px; /* Slightly rounded corners */
+        height: 35px;
+        text-align: center;
+        border-radius: 20px;
+        /*background-color: rgb(98, 82, 82);                  Bootstrap primary color (blue) */
+        color: rgb(225, 11, 222); /* White text color */
+        border: none; /* No border */
+        cursor: pointer; /* Change cursor on hover */
+      }
+      .buttonu:hover {
+        background-color: #0056b3; /* Darker shade on hover */
+    }
+
+
+  .form-control {
+    color: #4ebf08;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 2.25rem;
+    width:50%;
+    margin: auto;
+    display: block;
+    border: 2px solid #f141e9;
+
+  }
+  
+  .favorite-movies
+  {
+    display: flex;
+  }

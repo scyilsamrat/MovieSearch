@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CN Movie Search</title>
+        <!-- Include Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./moviedetail.css">
+    </head>
+    <body>
+        <div class="container my-4">
+            <h1 class="text-center" id="fetch-movie">Scyil Movie Search</h1>
+            <!-- Movie details section -->
+            <div class="row my-4">
+                <div class="col-12">
+                    <div class="movie-poster">
+                        <img id="movie-image" alt="Movie Poster">
+                    </div>
+                    <h2>Movie Details</h2>
+                    <div id="movie-details">
+                        <!-- Movie details will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const fetchSearchResults = async () =>{
+            const apiKey='c51f110e';
+            const currentUrl = new URL(window.location.href);
+            const searchParams = new URLSearchParams(currentUrl.search);
+            const id = searchParams.get('id');
+            const movieDetails = document.getElementById('movie-details');
+            const movieimage = document.getElementById('movie-image');
+            
+            console.log(id);
+            const url = `https://www.omdbapi.com/?i=${id}&apikey=${apiKey}`;
+             try {
+            const response = await fetch(url);
+            const data = await response.json();
+            console.log(data);
+            if (data.Response === 'True') {
+            movieDetails.innerHTML = `
+            <h3>${data.Title} (${data.Year})</h3>
+            <p><strong>Director:</strong> ${data.Director}</p>
+            <p><strong>Actors:</strong> ${data.Actors}</p>
+            <p><strong>Genre:</strong> ${data.Genre}</p>
+            <p><strong>Plot:</strong> ${data.Plot}</p>
+            `;
+            movieimage.src=data.Poster;
+            } else {
+                searchResults.innerHTML = '<p>No results found</p>';
+            }
+            } catch (error) {
+            searchResults.innerHTML = '<p>Error fetching results</p>';
+            }
+            }
+            fetchSearchResults();
+        </script>
+    </body>
+</html>

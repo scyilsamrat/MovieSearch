@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>CN Movie Search</title>
+        <!-- Include Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container my-4">
+            <h1 class="text-center" id="fetch-movie">Scyil Movie Search</h1>
+            <!-- Movie details section -->
+            <div class="row my-4">
+                <div class="col-12">
+                    <h2>Favorite Movies</h2>
+                    <div id="favorite-movies" class="d-flex flex-wrap">
+                        <!-- Favorite movies will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const favoriteMovies = document.getElementById('favorite-movies');
+            const updateFavoriteMovies = () => {
+                let favorites = JSON.parse(localStorage.getItem('favoriteMovies')) || [];
+                while (favoriteMovies.firstChild) {
+                favoriteMovies.removeChild(favoriteMovies.lastChild);
+              }
+              console.log(favorites);
+                const favoriteItems = document.createElement('ul');
+            for(i in favorites)
+                {
+                    const favoriteItem = document.createElement('li');
+                        favoriteItem.innerHTML=favorites[i];
+                        const addToFav= document.createElement('button');
+                        addToFav.id=i+"fav";
+                        addToFav.className="buttonu";     
+                        let parameter=i; 
+                        addToFav.addEventListener('click', () =>toggleFavorite(parameter));
+                        addToFav.innerHTML="Remove";
+                        favoriteItems.append(favoriteItem);
+                        favoriteItems.append(addToFav);
+                        favoriteMovies.append(favoriteItems);
+            }
+            };
+            
+            const toggleFavorite = (i) => {
+                let favorites = JSON.parse(localStorage.getItem('favoriteMovies')) || [];
+                const favButton=document.getElementById(i+"fav");
+                if (favorites.includes(favorites[i])) {
+                    favorites = favorites.filter((id) => id !== favorites[i]); //removing the particular movie from array storage.
+                }  
+                localStorage.setItem('favoriteMovies', JSON.stringify(favorites));
+            updateFavoriteMovies();
+            };
+            
+            updateFavoriteMovies();
+        </script>
+    </body>
+</html>
