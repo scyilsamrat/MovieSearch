@@ -1,6 +1,6 @@
 const apiKey = 'c51f110e'; // Api Key
-const searchInput = document.getElementById('movie-search');
-const searchResults = document.getElementById('search-results');
+const searchInput = document.getElementById('movie-search'); //selecting the input field
+const searchResults = document.getElementById('search-results'); // selecting the area where we will be displaying results dynamically.
 const movieDetails = document.getElementById('movie-details');
 const debounce = (func, wait) => {
     let timeout;
@@ -8,8 +8,8 @@ const debounce = (func, wait) => {
         clearTimeout(timeout);
         timeout = setTimeout(() => func(...args), wait);
     };
-};
-const fetchSearchResults = async (query) => {
+};// we use debounce to ensure the search happens only after the user has stopped typing.
+const fetchSearchResults = async (query) => {//we use sync function as we are using await below.
     if (query.trim() === '') {
         searchResults.innerHTML = '';
         return;
@@ -63,7 +63,7 @@ const fetchMovieDetails = async (imdbID) => {
         const response = await fetch(url);
         const data = await response.json();
         if (data.Response === 'True') {
-            movieInNewTab(data);
+            movieInNewTab(data);//calling another function for showing result in new page.
         } else {
             movieDetails.innerHTML = '<p>Movie details not found</p>';
         }
